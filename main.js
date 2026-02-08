@@ -20,7 +20,7 @@ const log = (e, t = "log") => console[t]("%c[%cLivery%cSelector%c] %c", LOG_STYL
 (async function init() {
     // find latest commit to ensure the latest files are fetched from jsDelivr
     try {
-        const res = await fetch(`https://api.github.com/repos/kolos26/GEOFS-LiverySelector/commits/main`);
+        const res = await fetch(`https://api.github.com/repos/OC135/GEOFS-LiverySelector/commits/main`);
         if (!res.ok) jsDelivr = githubRepo;
         const commit = (await res.json()).sha;
         if (!/^[a-f0-9]{40}$/.test(commit)) jsDelivr = githubRepo;
@@ -133,7 +133,7 @@ async function handleLiveryJson(data) {
     if (liveryobj.version != version) {
         document.querySelector('.livery-list h3').appendChild(
             createTag('a', {
-                href: 'https://github.com/kolos26/GEOFS-LiverySelector/releases/latest',
+                href: 'https://github.com/OC135/GEOFS-LiverySelector/releases/latest',
                 target: '_blank',
                 style: 'display:block;width:100%;text-decoration:none;text-align:center;'
             }, 'Update available: ' + liveryobj.version)
@@ -1211,4 +1211,5 @@ window.LiverySelector = {
     togglePanel,
 	log,
 	potatoSearch,
+
 };
